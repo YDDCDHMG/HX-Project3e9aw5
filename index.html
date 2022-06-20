@@ -20,7 +20,9 @@
                 },false);
 
                 window.addEventListener('click', function () {
-                    document.querySelector('#vid').play();
+                    if (this.el.object3D.visible == true) {
+                        document.querySelector('#vid').play();
+                    }
                 });
 
                 marker.addEventListener('markerFound', function () {
