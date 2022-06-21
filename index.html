@@ -11,30 +11,33 @@
     <script
         src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     <script>
+        if (performance.navigation.type == 2) {
+            location.reload(true);
+        }
         AFRAME.registerComponent('videohandler', {
             init: function () {
                 var marker = this.el;
                 this.vid = document.querySelector("#vid");
                 var visible = false;
 
-                document.getElementById('vid').addEventListener('ended', function(e) {
-                    window.open('https://chat.whatsapp.com/D6slqeNlMluFNYIqeGzreJ', '_blank');
-                },false);
+                document.getElementById('vid').addEventListener('ended', function (e) {
+                    window.location.href = 'https://chat.whatsapp.com/D6slqeNlMluFNYIqeGzreJ';
+                }, false);
 
                 window.addEventListener('click', function () {
-                    if(visible){
+                    if (visible) {
                         document.querySelector('#vid').play();
                     }
                 });
 
                 marker.addEventListener('markerFound', function () {
-                    visible=true;
+                    visible = true;
                     this.toggle = true;
                     this.vid.play();
                 }.bind(this));
 
                 marker.addEventListener('markerLost', function () {
-                    visible=false;
+                    visible = false;
                     this.toggle = false;
                     this.vid.pause();
                     this.vid.load();
