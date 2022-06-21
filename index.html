@@ -11,7 +11,9 @@
     <script
         src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     <script>
-        if (performance.navigation.type == 2) {
+        var perfEntries = performance.getEntriesByType("navigation");
+
+        if (perfEntries[0].type === "back_forward") {
             location.reload(true);
         }
         AFRAME.registerComponent('videohandler', {
