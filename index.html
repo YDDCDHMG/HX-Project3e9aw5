@@ -43,18 +43,13 @@
             },
         });
     </script>
-    <script>
-        if (!!window.performance && window.performance.navigation.type == 2) {
-            window.location.reload();
-        }
-    </script>
 </head>
 
 <body style="margin: 0; overflow: hidden;">
     <a-scene vr-mode-ui="enabled: false" loading-screen="enabled: false;"
         arjs='sourceType: webcam; debugUIEnabled: false;' id="scene" embedded gesture-detector>
         <a-assets>
-            <video id="vid" src="assets/asset.mp4" preload="auto" poster="/assets/poster.jpg" response-type="arraybuffer" crossorigin
+            <video id="vid" src="assets/asset.mp4" preload="auto" response-type="arraybuffer" crossorigin
                 webkit-playsinline playsinline></video>
         </a-assets>
 
